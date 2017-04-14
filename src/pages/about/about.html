@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <ion-title style="text-align:center;">
+        Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form>
+        <div class="container">
+          <ion-input type="text" [(ngModel)]="username" placeholder="Username" [ngModelOptions]="{standalone: true}"></ion-input>
+
+          <ion-input type="password" [(ngModel)]="password" placeholder="Password" [ngModelOptions]="{standalone: true}"></ion-input>
+
+          <button ion-button block color="default" (click)="check(username , password)">Login</button>
+        </div>
+
+    </form>
+
+
+
+</ion-content>

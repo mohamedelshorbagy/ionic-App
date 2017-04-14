@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-navbar color="primary" hideBackButton>
+    <ion-title>
+        <ion-grid>
+            <ion-row>
+              <ion-col col-2>
+                  <ion-icon name="list"></ion-icon>
+              </ion-col>
+              <ion-col col-10>
+                      <ion-input type="text" placeholder="Serach"></ion-input>
+              </ion-col>
+            </ion-row>
+
+        </ion-grid>
+
+    </ion-title>
+  </ion-navbar>
+
+<ion-toolbar color="primary">
+<!-- Segemnts -->
+  <ion-segment  [(ngModel)]="segments" color="light">
+      <ion-segment-button value="merchants">
+          Merchants
+
+      </ion-segment-button>
+      <ion-segment-button value="products">
+        Products
+      </ion-segment-button>
+
+  </ion-segment>
+
+</ion-toolbar>
+<!-- End oF Segemts -->
+</ion-header>
+
+
+
+
+<ion-content padding>
+
+<div [ngSwitch]="segments">
+    <div *ngSwitchCase="'merchants'">
+      <ion-list>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-4 *ngFor="let merch of merchants">
+                      <ion-card>
+
+                              <ion-thumbnail>
+                                    <img src="{{merch.logo}}" />
+                              </ion-thumbnail>
+
+                              <ion-card-content style="text-align:center;">
+                                    <h3>{{merch.name}}</h3>
+                              </ion-card-content>
+
+                      </ion-card>
+
+                </ion-col>
+            </ion-row>
+          </ion-grid>
+      </ion-list>
+
+      </div>
+      <div *ngSwitchCase="'products'">
+          <ion-list>
+
+
+          </ion-list>
+
+
+      </div>
+
+
+</div>
+
+
+<ion-fab bottom right>
+    <button ion-fab>
+        <ion-icon name="add"></ion-icon>
+    </button>
+
+  <ion-fab-list side="top">
+
+
+      <button ion-fab color="primary">
+            <ion-icon name="grid"></ion-icon>
+            <ion-label>Scan QR</ion-label>
+      </button>
+      <button ion-fab color="primary">
+            <ion-icon name="apps"></ion-icon>
+            <ion-label>Merchant number</ion-label>
+      </button>
+      <button ion-fab color="primary">
+            <span>123</span>
+            <ion-label>Voucher number</ion-label>
+
+      </button>
+
+  </ion-fab-list>
+
+</ion-fab>
+
+
+
+
+</ion-content>
